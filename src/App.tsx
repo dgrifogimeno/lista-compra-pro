@@ -3,19 +3,20 @@ import '@mantine/core/styles.css';
 
 import { AddItemForm } from './AddItemForm'
 import { ShoppingList } from './ShoppingList'
-import { Text } from '@mantine/core';
 
 function App() {
 
   return (
     <>
-      <Text>Llista de la compra 🛒</Text>
-      <AddItemForm> 
-
-      </AddItemForm>
-      <ShoppingList>  
-
-      </ShoppingList>
+      <div className="flex-div">
+        <h1>Llista de la compra 🛒</h1>
+        <div className="add-item-form">
+          <AddItemForm /> 
+        </div>
+        <div className="shopping-list">
+          <ShoppingList /> 
+        </div>
+      </div>
     </>
   )
 }
