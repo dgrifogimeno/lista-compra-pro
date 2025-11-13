@@ -1,0 +1,10 @@
+.list-items {
+  text-align: center;
+  font-family: var(--primary-font);
+}
+
+.list-item:hover {
+  cursor: pointer;
+  transition: transform 0.2s;
+  transform: scale(1.2);
+}

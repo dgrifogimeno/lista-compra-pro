@@ -14,14 +14,26 @@
 
 .input-button-group {
   display: flex;
+  flex-direction: row;
   gap: 12px;
   width: 100%;
 }
 
 .my-input {
-  flex: 1;
+  flex: 0.75;
   min-width: 0;
   transition: flex var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+.my-button {
+  flex: 0.25;
+  background-color: var(--color-primary);
+  color: black;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: flex var(--transition-speed) ease, transform var(--transition-speed) ease, background-color var(--transition-speed) ease;
 }
 
 .my-input input {
@@ -34,7 +46,7 @@
 
 .my-input:hover,
 .my-input:focus-within {
-  flex: 2;
+  flex: 1.05;
 }
 
 .my-input:hover input,
@@ -43,22 +55,8 @@
   box-shadow: 0 0 5px var(--color-primary);
 }
 
-.my-button {
-  flex: 0 0 200px;
-  background-color: var(--color-primary);
-  color: black;
-  font-weight: bold;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: flex var(--transition-speed) ease, transform var(--transition-speed) ease, background-color var(--transition-speed) ease, color var(--transition-speed) ease;
-}
-
 .my-button:hover {
   background-color: var(--color-primary);
   color: rgb(0, 0, 0);
-}
-
-.my-input:hover + .my-button {
-  flex: 0 0 180px;
+  flex: 0.3;
 }
