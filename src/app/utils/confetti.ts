@@ -6,6 +6,6 @@ export function launchConfetti() {
     particleCount: 120,
     startVelocity: 35,
     spread: 55,
-    origin: { y: 0.6 },
+    origin: { y: 0.52 },
   });
 }

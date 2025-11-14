@@ -2,7 +2,7 @@ import './App.css'
 import '@mantine/core/styles.css';
 
 import { AddItemForm } from './app/view/component/AppItemForm/AddItemForm'
-import { ShoppingList } from './app/view/component/ShoppingList/ShoppingList'
+import { ShoppingList } from './app/view/component/List/ShoppingList/ShoppingList'
 import { Layout } from './app/view/template/layout/Layout';
 import { useState } from 'react';
 import { launchConfetti } from "./app/utils/confetti";
@@ -10,6 +10,11 @@ import { launchConfetti } from "./app/utils/confetti";
 export interface ListItem {
   id: number;
   name: string;
+}
+
+export interface SwitchProps {
+  confetti: boolean;
+  setConfetti: (value: boolean) => void;
 }
 
 const App = () => {
@@ -21,7 +26,6 @@ const App = () => {
 
   const [confetti, setConfetti] = useState(true);
 
-  console.log("Confetti state:", confetti);
   const addItem = (item: string) => {
     setItems([...items, item]);
     if (confetti) {
@@ -31,7 +35,7 @@ const App = () => {
 
   return (
     <>
-      <Layout />
+      <Layout confetti={confetti} setConfetti={setConfetti} />
       <div className="flex-div">
         <h1>Afegeix elements a la llista</h1>
         <AddItemForm onAdd={addItem}/> 

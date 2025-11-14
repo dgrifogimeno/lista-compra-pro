@@ -3,3 +3,16 @@
     flex-direction: row;
     align-items: center;
 }
+
+.confettiSwitch {
+    margin-right: 10px;
+    width: 120px;
+}
+
+.layout-separator {
+  width: 100%;
+  height: 1px;
+  background-color: var(--color-muted);
+  margin: 0; 
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}

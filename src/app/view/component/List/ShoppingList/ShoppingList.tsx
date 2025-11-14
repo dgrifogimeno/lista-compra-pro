@@ -1,6 +1,7 @@
 import { List } from '@mantine/core';
 // import { IconCircleCheck, IconCircleDashed } from '@tabler/icons-react';
-import type { ListItem } from '../../../../App';
+import type { ListItem } from '../../../../../App';
+import { EmptyList } from '../EmptyList/EmptyList';
 import './ShoppingList.css';
 
 type ShoppingListProps = {
@@ -11,10 +12,7 @@ export function ShoppingList({ itemsList }: ShoppingListProps) {
   return (
     <>
       {itemsList.length === 0 ? (
-        <>
-        <h4>La llista està buida!</h4>
-        <h5>Afegeix algun element a la llista</h5>
-        </>
+        <EmptyList></EmptyList>
       ) : (
         <><h1>Llista de la compra</h1>
         <List spacing="xs" size="md" center className='list-items'>
