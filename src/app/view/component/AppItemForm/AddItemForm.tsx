@@ -20,7 +20,7 @@ export function AddItemForm({ onAdd }: AddItemFormProps) {
   return (
     <form onSubmit={handleSubmit}>
       <div className="input-group">
-        <label className="input-label">Nombre</label>
+        <label className="input-label">Nom</label>
         <div className="input-button-group">
           <Input 
             placeholder="Per exemple, pa, llet, ous" 

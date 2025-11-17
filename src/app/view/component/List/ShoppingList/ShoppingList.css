@@ -1,10 +1,92 @@
-.list-items {
-  text-align: center;
-  font-family: var(--primary-font);
+.list-container {
+  width: 50%;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  width: 100%; /* ocupa todo el ancho de la lista */
+  margin-bottom: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 6px;
+  background-color: #fafafa;
+  transition: background 0.2s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.item-content {
+  display: flex;
+  align-items: center;
+}
+
+.div-buttons {
+  display: flex;
+  gap: 8px;
+  margin-left: auto;
 }
 
 .list-item:hover {
+  transform: scale(1.02);
+}
+
+.item-text {
+  font-size: 1rem;
+  color: var(--color-accent);
+  font-weight: 400;
+}
+
+.delete-button {
   cursor: pointer;
-  transition: transform 0.2s;
-  transform: scale(1.2);
+  transition: transform 0.15s ease;
+}
+
+.delete-button:hover {
+  transform: scale(1.15);
+}
+
+.edit-button:hover {
+  transform: scale(1.15);
+}
+
+
+.list-item:hover .item-text {
+  font-weight: 500;
+}
+
+.list-item.removing {
+  opacity: 0;
+  transform: scale(0.8);
+}
+
+.list-item.hover-delete {
+  background-color: rgba(255, 0, 0, 0.15);
+}
+
+.list-item.hover-edit {
+  background-color: rgba(27, 27, 27, 0.15);
+}
+
+.save-button {
+  margin-top: 16px;
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  border-radius: 8px;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  width: 50%;
+  margin: auto;
+}
+
+.save-button:hover {
+  transform: scale(1.05);
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+.my-input:hover input,
+.my-input:focus-within input {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 5px var(--color-primary);
 }

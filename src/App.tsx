@@ -33,6 +33,16 @@ const App = () => {
     }
   }
 
+  const deleteItem = (id: number) => {
+    setItems(items.filter((_, index) => index !== id));
+  }
+
+  const editItem = (id: number, newName: string) => {
+    setItems((prev) =>
+      prev.map((item, index) => (index === id ? newName : item))
+    );
+  };
+
   return (
     <>
       <Layout confetti={confetti} setConfetti={setConfetti} />
@@ -40,11 +50,10 @@ const App = () => {
         <h1>Afegeix elements a la llista</h1>
         <AddItemForm onAdd={addItem}/> 
 
-        <ShoppingList itemsList={itemsList} /> 
+        <ShoppingList itemsList={itemsList} onDelete={deleteItem} onEdit={editItem} />
       </div>
     </>
   )
 };
-
 
 export default App
