@@ -1,11 +1,13 @@
 import './App.css'
 import '@mantine/core/styles.css';
+import { createClient } from '@supabase/supabase-js';
 
 import { AddItemForm } from './app/view/component/AppItemForm/AddItemForm'
 import { ShoppingList } from './app/view/component/List/ShoppingList/ShoppingList'
 import { Layout } from './app/view/template/layout/Layout';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { launchConfetti } from "./app/utils/confetti";
+import supabase from './app/utils/supabase';
 
 export interface ListItem {
   id: number;
@@ -18,6 +20,20 @@ export interface SwitchProps {
 }
 
 const App = () => {
+  registerUser("hola@hola.com", "holahola");
+
+  async function registerUser(email: string, password: string) {
+    const { data, error } = await supabase.auth.signUp({ email, password });
+    if (error) {
+      console.error('Error al registrar:', error.message);
+    } else {
+      console.log('Usuario registrado:', data);
+    }
+  }
+
+  const [data, setData] = useState<any>(null);
+  const [error, setError] = useState<any>(null);
+
   const [items, setItems] = useState<string[]>([]);
   const itemsList: ListItem[] = items.map((item, index) => ({
     id: index,
@@ -42,11 +58,14 @@ const App = () => {
       prev.map((item, index) => (index === id ? newName : item))
     );
   };
-
+  
+  const userData = data?.user?.email || "Usuari/ària";
+  console.log("User data:", userData);
   return (
     <>
       <Layout confetti={confetti} setConfetti={setConfetti} />
       <div className="flex-div">
+        <h1>Benvingut/da a la teva llista de la compra {userData}!</h1>
         <h1>Afegeix elements a la llista</h1>
         <AddItemForm onAdd={addItem}/> 
 
